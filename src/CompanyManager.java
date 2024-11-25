@@ -1,18 +1,17 @@
 import java.sql.*;
-import java.util.*;
 
 public class CompanyManager {
     private static final String URL = "jdbc:mysql://localhost:3306/company_db";
-    private static final String USER = "root"; // MySQL username
-    private static final String PASSWORD = "Ym01279951749#"; // MySQL password
+    private static final String USER = "root";
+    private static final String PASSWORD = "Ym01279951749#";
     private static Connection connection;
 
-    // Establish a connection to the MySQL database
+
     public static void connect() throws SQLException {
         connection = DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    // Add a department
+
     public static void addDepartment(String name) {
         try {
             String query = "INSERT INTO departments (name) VALUES (?)";
@@ -30,7 +29,7 @@ public class CompanyManager {
         }
     }
 
-    // Add an employee to a department
+
     public static void addEmployee(String fullName, int age, double salary, int departmentId) {
         try {
             String query = "INSERT INTO employees (full_name, age, salary, department_id) VALUES (?, ?, ?, ?)";
@@ -48,7 +47,7 @@ public class CompanyManager {
         }
     }
 
-    // Remove an employee
+
     public static void removeEmployee(int employeeId) {
         try {
             String query = "SELECT department_id FROM employees WHERE id = ?";
@@ -73,7 +72,7 @@ public class CompanyManager {
         }
     }
 
-    // Update a department's name
+
     public static void updateDepartment(int departmentId, String newName) {
         try {
             String query = "UPDATE departments SET name = ? WHERE id = ?";
@@ -92,7 +91,7 @@ public class CompanyManager {
         }
     }
 
-    // Update an employee's details
+
     public static void updateEmployee(int employeeId, String newFullName, int newAge, double newSalary) {
         try {
             String query = "UPDATE employees SET full_name = ?, age = ?, salary = ? WHERE id = ?";
@@ -113,7 +112,7 @@ public class CompanyManager {
         }
     }
 
-    // Helper method to update employee count for a department
+
     private static void updateDepartmentEmployeeCount(int departmentId, int change) {
         try {
             String query = "UPDATE departments SET employee_count = employee_count + ? WHERE id = ?";
@@ -127,7 +126,7 @@ public class CompanyManager {
         }
     }
 
-    // Show all departments
+
     public static void showDepartments() {
         try {
             String query = "SELECT * FROM departments";
@@ -141,7 +140,7 @@ public class CompanyManager {
         }
     }
 
-    // Show all employees in a department
+
     public static void showEmployeesInDepartment(int departmentId) {
         try {
             String query = "SELECT * FROM employees WHERE department_id = ?";
@@ -158,7 +157,7 @@ public class CompanyManager {
         }
     }
 
-    // Show the total salary in a department
+
     public static void showTotalSalaryInDepartment(int departmentId) {
         try {
             String query = "SELECT SUM(salary) AS total_salary FROM employees WHERE department_id = ?";
@@ -175,7 +174,7 @@ public class CompanyManager {
         }
     }
 
-    // Close the connection to the database
+
     public static void close() throws SQLException {
         if (connection != null) {
             connection.close();
