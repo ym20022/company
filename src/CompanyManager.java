@@ -39,7 +39,7 @@ public class CompanyManager {
                 ps.setDouble(3, salary);
                 ps.setInt(4, departmentId);
                 ps.executeUpdate();
-                updateDepartmentEmployeeCount(departmentId, 1);  // Increment the employee count for the department
+                updateDepartmentEmployeeCount(departmentId, 1);  
                 System.out.println("Employee added.");
             }
         } catch (SQLException e) {
@@ -64,7 +64,7 @@ public class CompanyManager {
             try (PreparedStatement ps = connection.prepareStatement(query)) {
                 ps.setInt(1, employeeId);
                 ps.executeUpdate();
-                updateDepartmentEmployeeCount(departmentId, -1);  // Decrement the employee count for the department
+                updateDepartmentEmployeeCount(departmentId, -1); 
                 System.out.println("Employee removed.");
             }
         } catch (SQLException e) {
