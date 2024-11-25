@@ -22,7 +22,7 @@ public class Main {
                 System.out.println("0. Exit");
                 System.out.print("Choose an option: ");
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Consume newline character
+                scanner.nextLine(); 
 
                 switch (choice) {
                     case 1:
@@ -53,7 +53,7 @@ public class Main {
 
                         System.out.print("Enter department ID to update: ");
                         int deptIdToUpdate = scanner.nextInt();
-                        scanner.nextLine(); // Consume newline
+                        scanner.nextLine(); 
                         System.out.print("Enter new department name: ");
                         String newDeptName = scanner.nextLine();
                         CompanyManager.updateDepartment(deptIdToUpdate, newDeptName);
@@ -62,7 +62,7 @@ public class Main {
 
                         System.out.print("Enter employee ID to update: ");
                         int empIdToUpdate = scanner.nextInt();
-                        scanner.nextLine(); // Consume newline
+                        scanner.nextLine(); 
                         System.out.print("Enter new employee full name: ");
                         String newFullName = scanner.nextLine();
                         System.out.print("Enter new age: ");
